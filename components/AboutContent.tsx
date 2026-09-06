@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useCatalog } from '@/components/CatalogProvider';
 export function AboutContent() {
   const { settings } = useCatalog();
@@ -35,9 +34,9 @@ export function AboutContent() {
             que conecta cada criação é o cuidado com os detalhes e a liberdade
             de escolher o que combina com você.
           </p>
-          <Link className="button" href="/encomendas">
+          <a className="button" href="/encomendas">
             Vamos imaginar sua peça? ↗
-          </Link>
+          </a>
         </div>
       </div>
     </section>

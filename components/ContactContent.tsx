@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useCatalog } from '@/components/CatalogProvider';
 import { whatsappUrl } from '@/lib/catalog';
 export function ContactContent() {
@@ -38,7 +37,7 @@ export function ContactContent() {
         </div>
         <div>
           <span>Peças personalizadas</span>
-          <Link href="/encomendas">Conte sua ideia no formulário ↗</Link>
+          <a href="/encomendas">Conte sua ideia no formulário ↗</a>
         </div>
         {settings.instagram && (
           <div>

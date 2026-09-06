@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Menu, X, MessageCircle, ArrowUpRight } from 'lucide-react';
@@ -27,32 +26,32 @@ export function SiteHeader() {
   const path = usePathname();
   return (
     <header className="site-header">
-      <Link
+      <a
         href="/"
         aria-label="Lu by Encantos Odoyá, início"
         onClick={() => setOpen(false)}
       >
         <Brand />
-      </Link>
+      </a>
       <nav
         className={open ? 'main-nav is-open' : 'main-nav'}
         aria-label="Navegação principal"
         id="menu-principal"
       >
         {links.map(([href, label]) => (
-          <Link
+          <a
             key={href}
             href={href}
             aria-current={path === href ? 'page' : undefined}
             onClick={() => setOpen(false)}
           >
             {label}
-          </Link>
+          </a>
         ))}
       </nav>
-      <Link className="header-cta" href="/encomendas">
+      <a className="header-cta" href="/encomendas">
         Feito para você <ArrowUpRight size={16} />
-      </Link>
+      </a>
       <button
         className="menu-toggle"
         onClick={() => setOpen(!open)}
@@ -72,9 +71,9 @@ export function SiteFooter() {
     <>
       <footer className="site-footer">
         <div>
-          <Link href="/">
+          <a href="/">
             <Brand />
-          </Link>
+          </a>
           <p>
             O bonito é carregar
             <br />
@@ -83,9 +82,9 @@ export function SiteFooter() {
         </div>
         <nav aria-label="Navegação do rodapé">
           {links.slice(1).map(([href, label]) => (
-            <Link key={href} href={href}>
+            <a key={href} href={href}>
               {label}
-            </Link>
+            </a>
           ))}
         </nav>
         <div className="footer-contact">
@@ -102,7 +101,7 @@ export function SiteFooter() {
         <div className="footer-bottom">
           <span>© {new Date().getFullYear()} Lu by Encantos Odoyá</span>
           <span>Feito com cuidado por VOLT.SYS</span>
-          <Link href="/admin">Área da Lu</Link>
+          <a href="/admin">Área da Lu</a>
         </div>
       </footer>
       <a

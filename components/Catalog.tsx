@@ -1,6 +1,5 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { Search, X } from 'lucide-react';
 import { useCatalog } from '@/components/CatalogProvider';
@@ -159,9 +158,9 @@ export function Catalog() {
             Tente outra cor, categoria ou palavra. Você também pode encomendar
             uma peça personalizada.
           </p>
-          <Link href="/encomendas" className="button">
+          <a href="/encomendas" className="button">
             Criar minha encomenda ↗
-          </Link>
+          </a>
         </div>
       )}
     </>

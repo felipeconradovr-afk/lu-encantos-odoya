@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { HomeSections } from '@/components/HomeSections';
 export default function Home() {
   return (
@@ -16,12 +15,12 @@ export default function Home() {
             à mão, para acompanhar suas histórias.
           </p>
           <div className="actions">
-            <Link className="button" href="/produtos">
+            <a className="button" href="/produtos">
               Explorar as peças ↗
-            </Link>
-            <Link className="text-link" href="/encomendas">
+            </a>
+            <a className="text-link" href="/encomendas">
               Criar minha encomenda ↗
-            </Link>
+            </a>
           </div>
           <span className="hero-footnote">
             LU BY ENCANTOS ODOYÁ · FEITO À MÃO

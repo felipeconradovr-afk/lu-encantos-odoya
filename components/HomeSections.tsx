@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useCatalog } from '@/components/CatalogProvider';
 import { ProductCard, ProductImage } from '@/components/ProductCard';
 import { Reveal } from '@/components/Reveal';
@@ -22,9 +21,9 @@ export function HomeSections() {
                 combina com <em>você?</em>
               </h2>
             </div>
-            <Link className="text-link" href="/produtos">
+            <a className="text-link" href="/produtos">
               Ver todo o catálogo ↗
-            </Link>
+            </a>
           </div>
           <p className="demo-note">
             Catálogo demonstrativo. Modelos e valores ilustrativos; confirme os
@@ -54,14 +53,14 @@ export function HomeSections() {
             ['Adereços', '04'],
             ['Acessórios', '05'],
           ].map(([name, num]) => (
-            <Link
+            <a
               key={name}
               href={`/produtos?categoria=${encodeURIComponent(name)}`}
             >
               <span>{num}</span>
               <h3>{name}</h3>
               <span>↗</span>
-            </Link>
+            </a>
           ))}
         </div>
       </section>
@@ -89,9 +88,9 @@ export function HomeSections() {
             deixa uma peça com a sua cara. É desse encontro que nascem as
             criações da Lu.
           </p>
-          <Link className="text-link" href="/sobre">
+          <a className="text-link" href="/sobre">
             Conheça nosso universo ↗
-          </Link>
+          </a>
         </Reveal>
       </section>
       <section className="custom-banner">
@@ -104,9 +103,9 @@ export function HomeSections() {
           Uma cor que você ama, um presente especial, um detalhe só seu. Conte
           sua ideia e vamos conversar sobre as possibilidades.
         </p>
-        <Link className="button" href="/encomendas">
+        <a className="button" href="/encomendas">
           Quero uma peça personalizada ↗
-        </Link>
+        </a>
         <span className="banner-word" aria-hidden="true">
           feito para você
         </span>
@@ -139,10 +138,10 @@ export function HomeSections() {
               .filter((p) => p.active)
               .slice(3, 5)
               .map((p) => (
-                <Link key={p.code} href={`/produtos/${p.slug}`}>
+                <a key={p.code} href={`/produtos/${p.slug}`}>
                   <ProductImage product={p} />
                   <span>{p.name} ↗</span>
-                </Link>
+                </a>
               ))}
           </div>
         </Reveal>
@@ -177,9 +176,9 @@ export function HomeSections() {
             </div>
           ))}
         </div>
-        <Link className="text-link" href="/contato">
+        <a className="text-link" href="/contato">
           Ficou com alguma dúvida? Fale com a Lu ↗
-        </Link>
+        </a>
       </section>
     </>
   );

@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useState } from 'react';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { useCatalog } from '@/components/CatalogProvider';
@@ -18,16 +17,16 @@ export function ProductDetail({ slug }: { slug: string }) {
     return (
       <section className="section empty-state">
         <h1>Peça não encontrada.</h1>
-        <Link className="button" href="/produtos">
+        <a className="button" href="/produtos">
           Voltar ao catálogo
-        </Link>
+        </a>
       </section>
     );
   return (
     <section className="section detail-page">
-      <Link href="/produtos" className="back-link">
+      <a href="/produtos" className="back-link">
         <ArrowLeft size={16} /> Voltar ao catálogo
-      </Link>
+      </a>
       <div className="product-detail">
         <div className="detail-gallery">
           <ProductImage product={product} index={image} />

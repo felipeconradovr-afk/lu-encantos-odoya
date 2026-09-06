@@ -1,4 +1,3 @@
-import Link from 'next/link';
 export default function NotFound() {
   return (
     <section className="section empty-state">
@@ -9,9 +8,9 @@ export default function NotFound() {
         ainda não <em>existe.</em>
       </h1>
       <p>Mas há muitos encantos esperando por você.</p>
-      <Link className="button" href="/produtos">
+      <a className="button" href="/produtos">
         Conhecer o catálogo ↗
-      </Link>
+      </a>
     </section>
   );
 }

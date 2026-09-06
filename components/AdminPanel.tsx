@@ -1,6 +1,5 @@
 'use client';
 import { useMemo, useState, type SyntheticEvent } from 'react';
-import Link from 'next/link';
 import {
   Plus,
   ArrowUp,
@@ -365,9 +364,9 @@ export function AdminPanel() {
           </h1>
         </div>
         <div className="actions">
-          <Link className="text-link" href="/produtos">
+          <a className="text-link" href="/produtos">
             Ver catálogo ↗
-          </Link>
+          </a>
           <button
             className="icon-button"
             onClick={() => {

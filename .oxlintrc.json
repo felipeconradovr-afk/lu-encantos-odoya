@@ -37,6 +37,7 @@
     "no-array-constructor": "error",
     "no-var": "error",
     "nextjs/no-img-element": "off",
+    "nextjs/no-html-link-for-pages": "off",
     "prefer-const": "error",
     "prefer-rest-params": "error",
     "prefer-spread": "error",

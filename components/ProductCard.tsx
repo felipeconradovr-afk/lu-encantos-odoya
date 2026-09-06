@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 import { money, isSafeImage, type Product } from '@/lib/catalog';
 export function ProductImage({
@@ -38,7 +37,7 @@ export function ProductImage({
 export function ProductCard({ product }: { product: Product }) {
   return (
     <article className="product-card">
-      <Link
+      <a
         href={`/produtos/${product.slug}`}
         className="product-image-link"
         aria-label={`Ver detalhes de ${product.name}`}
@@ -52,17 +51,17 @@ export function ProductCard({ product }: { product: Product }) {
         <span className="product-arrow" aria-hidden="true">
           <ArrowUpRight size={21} />
         </span>
-      </Link>
+      </a>
       <div className="product-meta">
         <span>{product.category}</span>
         <span>{product.code}</span>
       </div>
       <h3>
-        <Link href={`/produtos/${product.slug}`}>{product.name}</Link>
+        <a href={`/produtos/${product.slug}`}>{product.name}</a>
       </h3>
       <div className="product-bottom">
         <span>{money(product.price)}</span>
-        <Link href={`/produtos/${product.slug}`}>Ver detalhes ↗</Link>
+        <a href={`/produtos/${product.slug}`}>Ver detalhes ↗</a>
       </div>
     </article>
   );
