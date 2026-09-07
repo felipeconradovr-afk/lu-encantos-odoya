@@ -25,13 +25,16 @@
   "ignorePatterns": [
     ".next/**",
     ".vinext/**",
+    ".output/**",
+    ".wrangler/**",
     "out/**",
     "build/**",
     "dist/**",
     "coverage/**",
     "components/ui/**",
     "hooks/use-mobile.ts",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "tests/playwright-debug.test.ts"
   ],
   "rules": {
     "no-array-constructor": "error",

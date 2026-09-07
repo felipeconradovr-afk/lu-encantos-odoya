@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState, type SyntheticEvent } from 'react';
+import { useEffect, useMemo, useRef, useState, type SyntheticEvent } from 'react';
 import {
   Plus,
   ArrowUp,
@@ -110,9 +110,21 @@ export function AdminPanel() {
   const [renamingId, setRenamingId] = useState<string | null>(null);
   const [renameDraft, setRenameDraft] = useState('');
   const [loggedOut, setLoggedOut] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [pendingFiles, setPendingFiles] = useState<File[]>([]);
+  const pendingUrls = useMemo(
+    () => pendingFiles.map((f) => URL.createObjectURL(f)),
+    [pendingFiles],
+  );
 
   const configured = isSupabaseConfigured();
   const loggedIn = Boolean(user) && !loggedOut;
+
+  useEffect(() => {
+    return () => {
+      pendingUrls.forEach((u) => URL.revokeObjectURL(u));
+    };
+  }, [pendingUrls]);
 
   async function loadAll() {
     setBoot('loading');
@@ -185,6 +197,8 @@ export function AdminPanel() {
         ),
       );
     }
+    setPendingFiles([]);
+    if (fileInputRef.current) fileInputRef.current.value = '';
     setError('');
     setNotice('');
     setTab('produtos');
@@ -228,7 +242,18 @@ export function AdminPanel() {
     setSaving(true);
     setError('');
     try {
-      await saveProduct(input, editing.dbId);
+      const savedId = await saveProduct(input, editing.dbId);
+      const targetId = editing.dbId || savedId;
+      if (pendingFiles.length && targetId) {
+        setUploading(true);
+        try {
+          await uploadProductImages(targetId, pendingFiles);
+        } finally {
+          setUploading(false);
+        }
+      }
+      setPendingFiles([]);
+      if (fileInputRef.current) fileInputRef.current.value = '';
       setEditing(null);
       setNotice(
         editing.dbId ? 'Produto atualizado e publicado.' : 'Produto criado e publicado.',
@@ -243,14 +268,32 @@ export function AdminPanel() {
   }
 
   async function handleUpload(files: FileList | null) {
-    if (!files || !editing?.dbId) {
-      setError('Salve a peça antes de enviar fotos.');
+    if (!files || !editing) return;
+    const list = Array.from(files);
+    if (!list.length) return;
+    const total = editing.images.length + pendingFiles.length + list.length;
+    if (total > 6) {
+      setError('Use até 6 fotos por peça.');
+      if (fileInputRef.current) fileInputRef.current.value = '';
+      return;
+    }
+    if (!editing.dbId) {
+      for (const f of list) {
+        if (!['image/png', 'image/jpeg', 'image/webp'].includes(f.type) || f.size > 3 * 1024 * 1024) {
+          setError('Envie JPG, PNG ou WebP de até 3 MB por imagem.');
+          if (fileInputRef.current) fileInputRef.current.value = '';
+          return;
+        }
+      }
+      setPendingFiles((prev) => [...prev, ...list]);
+      setError('');
+      if (fileInputRef.current) fileInputRef.current.value = '';
       return;
     }
     setUploading(true);
     setError('');
     try {
-      const urls = await uploadProductImages(editing.dbId, Array.from(files));
+      const urls = await uploadProductImages(editing.dbId, list);
       setEditing({ ...editing, images: [...editing.images, ...urls] });
       setNotice('Upload concluído.');
       await reloadCatalog();
@@ -258,6 +301,7 @@ export function AdminPanel() {
       setError(err instanceof Error ? err.message : 'Erro ao enviar imagem.');
     } finally {
       setUploading(false);
+      if (fileInputRef.current) fileInputRef.current.value = '';
     }
   }
 
@@ -581,18 +625,25 @@ export function AdminPanel() {
                   <label htmlFor="edit-images">
                     Fotos da peça · até 6 fotos, 3 MB cada
                   </label>
-                  {!editing.dbId && (
+                  {!editing.dbId && pendingFiles.length === 0 && (
                     <p className="small-copy">
-                      Salve a peça primeiro; depois volte aqui para enviar as fotos.
+                      Selecione as fotos agora — elas serão enviadas ao salvar a peça.
+                    </p>
+                  )}
+                  {!editing.dbId && pendingFiles.length > 0 && (
+                    <p className="small-copy">
+                      {pendingFiles.length} foto(s) pendente(s) — serão enviadas ao salvar.
                     </p>
                   )}
                   <input
+                    ref={fileInputRef}
                     id="edit-images"
                     type="file"
                     multiple
                     accept="image/png,image/jpeg,image/webp"
-                    disabled={!editing.dbId || uploading}
+                    disabled={uploading}
                     onChange={(e) => void handleUpload(e.target.files)}
+                    data-testid="product-image-input"
                   />
                   {uploading && <p className="small-copy">Enviando imagem…</p>}
                   <div className="upload-previews">
@@ -644,6 +695,24 @@ export function AdminPanel() {
                             {busyId === src ? 'Aguarde…' : 'Tornar principal'}
                           </button>
                         )}
+                      </div>
+                    ))}
+                    {pendingUrls.map((src, i) => (
+                      <div key={`pending-${src}-${i}`}>
+                        <img
+                          src={src}
+                          width="120"
+                          height="140"
+                          alt={`Prévia ${i + 1} da peça`}
+                        />
+                        <button
+                          type="button"
+                          onClick={() =>
+                            setPendingFiles((prev) => prev.filter((_, n) => n !== i))
+                          }
+                        >
+                          Remover prévia {i + 1}
+                        </button>
                       </div>
                     ))}
                   </div>
