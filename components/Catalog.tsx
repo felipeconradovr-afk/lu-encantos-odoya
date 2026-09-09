@@ -19,7 +19,7 @@ type Registry = {
   ) => void | Promise<void>;
 };
 export function Catalog() {
-  const { products, categories } = useCatalog();
+  const { products, categories, fromDatabase, catalogError } = useCatalog();
   const params = useSearchParams();
   const [query, setQuery] = useState('');
   const categoriaParam = params.get('categoria') || 'Todas';
@@ -89,6 +89,7 @@ export function Catalog() {
   }, [products, categories]);
   return (
     <>
+      {!fromDatabase && <output>{catalogError || "Carregando as peças…"}</output>}
       <div className="catalog-controls">
         <div className="search-field">
           <label htmlFor="busca">Encontre uma peça</label>
@@ -141,7 +142,7 @@ export function Catalog() {
           </button>
         )}
       </div>
-      {filtered.length ? (
+      {!fromDatabase ? null : filtered.length ? (
         <div className="product-grid">
           {filtered.map((p) => (
             <ProductCard key={p.code} product={p} />

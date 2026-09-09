@@ -1,0 +1,1 @@
+import{i as e,q as t}from"./rsc.mjs";var n=t(()=>{throw Error(`Unexpectedly client reference export 'AboutContent' is called on server`)},`7cad4b926129`,`AboutContent`),r=e(),i={title:`Nosso universo artesanal`};function a(){return(0,r.jsx)(n,{})}export{a as default,i as metadata};

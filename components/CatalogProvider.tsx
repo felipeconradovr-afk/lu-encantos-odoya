@@ -7,8 +7,8 @@ import {
   type ReactNode,
 } from 'react';
 import {
-  initialProducts,
-  initialCategories,
+
+
   initialSettings,
   type Product,
   type Settings,
@@ -28,11 +28,11 @@ type Catalog = {
 };
 const Context = createContext<Catalog | null>(null);
 
-// Supabase é a fonte oficial quando configurado; o fallback local existe
-// só para desenvolvimento offline e nunca sobrescreve o banco.
+// Produtos reais são carregados exclusivamente do Supabase.
+// O estado inicial vazio impede a exibição de registros demonstrativos.
 export function CatalogProvider({ children }: { children: ReactNode }) {
-  const [products, setProducts] = useState(initialProducts);
-  const [categories, setCategories] = useState(initialCategories);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
   const [settings, setSettings] = useState(initialSettings);
   const [fromDatabase, setFromDatabase] = useState(false);
   const [catalogError, setCatalogError] = useState('');
@@ -49,7 +49,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
       }
     } catch {
       setCatalogError(
-        'Não foi possível atualizar o catálogo agora. Mostrando a última versão disponível.',
+        'Não foi possível atualizar o catálogo. Tente recarregar a página em instantes.',
       );
     }
   }
@@ -69,7 +69,7 @@ export function CatalogProvider({ children }: { children: ReactNode }) {
       })
       .catch(() => {
         setCatalogError(
-          'Não foi possível atualizar o catálogo agora. Mostrando a última versão disponível.',
+          'Não foi possível atualizar o catálogo. Tente recarregar a página em instantes.',
         );
       });
   }, []);

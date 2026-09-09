@@ -5,7 +5,7 @@ import { useCatalog } from '@/components/CatalogProvider';
 import { ProductImage, ProductCard } from '@/components/ProductCard';
 import { money, productMessage, whatsappUrl } from '@/lib/catalog';
 export function ProductDetail({ slug }: { slug: string }) {
-  const { products, settings } = useCatalog();
+  const { products, settings, fromDatabase, catalogError } = useCatalog();
   const [image, setImage] = useState(0);
   const [prevSlug, setPrevSlug] = useState(slug);
   if (prevSlug !== slug) {
@@ -13,6 +13,7 @@ export function ProductDetail({ slug }: { slug: string }) {
     setImage(0);
   }
   const product = products.find((p) => p.slug === slug && p.active);
+  if (!fromDatabase) return <section className="section empty-state"><h1>Detalhes da peça</h1><output>{catalogError || "Carregando a peça…"}</output><a className="text-link" href="/produtos">Voltar ao catálogo</a></section>;
   if (!product)
     return (
       <section className="section empty-state">
@@ -85,10 +86,6 @@ export function ProductDetail({ slug }: { slug: string }) {
           <p className="small-copy">
             Você conversa diretamente com a Lu. Nenhum pagamento é feito por
             aqui.
-          </p>
-          <p className="demo-note">
-            Produto de demonstração. Valor e características precisam de
-            confirmação.
           </p>
           <details>
             <summary>Cuidados e informações adicionais</summary>

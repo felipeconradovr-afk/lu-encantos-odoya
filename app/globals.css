@@ -1850,3 +1850,73 @@ input[type='file']::file-selector-button {
     transform: none;
   }
 }
+
+/* Identidade editorial: Umbanda, matéria e ancestralidade. */
+body:has(.faith-hero), body:has(.catalog-page), body:has(.about-page), body:has(.order-page), body:has(.contact-page), body:has(.detail-page) {
+  --paper:#faf7f1; --ink:#34283d; --purple:#59375f;
+  --muted-foreground:#6c6071; --lavender:#e9e0ed; --rose:#ede3e9; --blue:#ece8e2;
+}
+.hero-copy h1,.hero-copy > p:not(.eyebrow),.actions,.hero-art,.product-card,.brand-lu > span { animation:none; }
+.faith-hero { grid-template-columns:1.05fr 1fr; gap:5%; padding-block:54px 70px; min-height:720px; }
+.faith-hero h1 { font-size:clamp(4rem,7.2vw,7.1rem); letter-spacing:-.055em; }
+.title-line { display:block; overflow:hidden; padding-bottom:.1em; margin-bottom:-.1em; }
+.title-line > span { display:block; }
+.hero-title-end { display:block; font-size:.43em; letter-spacing:-.025em; margin-top:20px; }
+.faith-hero .eyebrow { color:#41616c; max-width:340px; line-height:1.8; }
+.hero-image-mask { overflow:hidden; height:100%; border-radius:48% 48% 2px 2px; }
+.hero-image-mask img { width:100%; height:100%; object-fit:cover; border-radius:0; }
+.faith-hero .hero-art { margin-right:0; height:590px; }
+.faith-hero .art-label { font-size:24px; transform:none; left:-25px; bottom:40px; background:#faf7f1ed; padding:12px 20px; }
+.image-index { display:block; margin-top:14px; text-align:right; font-size:12px; letter-spacing:.16em; color:#6c6071; }
+.hero-footnote { font-size:12px; letter-spacing:.1em; line-height:1.8; }
+.ribbon { background:#ede6ed; gap:clamp(24px,8vw,120px); padding-block:19px; white-space:normal; flex-wrap:wrap; }
+.ribbon span { color:#59375f; }
+.identity-section { display:grid; grid-template-columns:1.1fr 1fr; gap:10%; align-items:center; padding-block:105px; border-bottom:1px solid #ded5df; }
+.identity-section h2 { font-size:clamp(2.7rem,4.5vw,4.5rem); }
+.identity-copy p { color:#6c6071; margin-bottom:20px; }
+.identity-copy p:first-child { color:#34283d; font-size:18px; }
+.featured-section { padding-top:85px; }
+.category-section { background:#ede9e4; }
+.category-links a { border-color:#cfc7ca; }
+.custom-banner { background:#e9e0ed; padding-block:95px; }
+.banner-copy { max-width:540px; margin:28px auto 32px; color:#6c6071; }
+.product-card { padding-bottom:18px; border-bottom:1px solid #ded5df; }
+.product-meta,.product-bottom a { font-size:14px; }
+.product-image-link:hover > img { transform:scale(1.018); }
+.product-image-link:focus-visible { outline-offset:5px; }
+.product-image-link:focus-visible .product-arrow { transform:translate(2px,-2px); }
+.institutional-image { overflow:hidden; }
+.institutional-image img { border-radius:2px 38% 2px 2px; }
+.institutional-image > span { right:0; transform:none; }
+.menu-lines { display:flex; flex-direction:column; justify-content:center; width:24px; height:24px; gap:6px; }
+.menu-lines > span { display:block; width:24px; height:1px; background:currentColor; transition:transform .25s; }
+.menu-toggle[aria-expanded="true"] .menu-lines > span:first-child { transform:translateY(3.5px) rotate(45deg); }
+.menu-toggle[aria-expanded="true"] .menu-lines > span:last-child { transform:translateY(-3.5px) rotate(-45deg); }
+.button:active { transform:translateY(0) scale(.99); }
+@media(max-width:1000px) {
+  .faith-hero { min-height:620px; }
+  .faith-hero .hero-art { height:480px; }
+  .identity-section { gap:6%; }
+}
+@media(max-width:700px) {
+  .faith-hero { grid-template-columns:1fr; gap:30px; padding:34px 6% 54px; }
+  .faith-hero h1 { font-size:clamp(3.6rem,13vw,5.5rem); }
+  .faith-hero .hero-art { width:94%; height:430px; margin:0 auto; }
+  .faith-hero .art-label { font-size:21px; left:-10px; bottom:25px; }
+  .hero-title-end { margin-top:12px; }
+  .identity-section { grid-template-columns:1fr; gap:30px; padding-block:60px; }
+  .ribbon { gap:12px 30px; font-size:21px; justify-content:center; }
+  .main-nav { display:flex; visibility:hidden; opacity:0; transform:translateY(-8px); transition:opacity .25s,transform .25s,visibility .25s; pointer-events:none; }
+  .main-nav.is-open { visibility:visible; opacity:1; transform:translateY(0); pointer-events:auto; }
+  .custom-banner { padding-block:65px; }
+  .featured-grid .product-card:nth-child(2) { margin-top:0; }
+  .product-bottom { flex-wrap:wrap; }
+  .product-meta { gap:10px; font-size:12px; }
+}
+@media(hover:none) {
+  .product-image-link:hover > img,.button:hover,.whatsapp-float:hover { transform:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .title-line > span { transform:none !important; }
+  .hero-image-mask { clip-path:none !important; }
+}

@@ -9,11 +9,11 @@ export function AboutContent() {
         <h1>
           O feito à mão tem
           <br />
-          outro <em>sentido.</em>
+          a sua <em>identidade.</em>
         </h1>
       </div>
       <div className="story-section">
-        <div className="story-image">
+        <div className="story-image institutional-image">
           <img
             src="/images/atelier.webp"
             alt="Inspiração artesanal de cristais, conchas e miçangas"
@@ -24,15 +24,13 @@ export function AboutContent() {
         </div>
         <div className="story-copy">
           <h2>
-            Pequenas peças.
+            Fé e ancestralidade.
             <br />
-            <em>Muitas histórias.</em>
+            <em>Cuidado em cada detalhe.</em>
           </h2>
           <p>{settings.about}</p>
           <p>
-            Colares, pulseiras, adornos e acessórios para diferentes momentos. O
-            que conecta cada criação é o cuidado com os detalhes e a liberdade
-            de escolher o que combina com você.
+            A Umbanda está no centro da identidade da Lu Encantos Odoyá, ao lado do respeito ao Candomblé e às tradições de matriz africana. Peças feitas à mão para acompanhar a sua espiritualidade e a sua conexão com o sagrado.
           </p>
           <a className="button" href="/encomendas">
             Vamos imaginar sua peça? ↗

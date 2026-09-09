@@ -1,0 +1,1 @@
+function e(e){return`${e.trim().toLowerCase()}@${process.env.ADMIN_EMAIL_DOMAIN||`admin.local`}`}function t(e){return(process.env.ADMIN_USERNAME||`luencantosodoya`).split(`,`).map(e=>e.trim().toLowerCase()).filter(Boolean).includes(e.trim().toLowerCase())}export{e,t};

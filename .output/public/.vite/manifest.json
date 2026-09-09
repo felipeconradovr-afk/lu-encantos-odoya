@@ -1,0 +1,258 @@
+{
+  "_ProductCard-C9nNN15M.js": {
+    "file": "_next/static/chunks/ProductCard-C9nNN15M.js",
+    "name": "ProductCard",
+    "imports": [
+      "components/CatalogProvider.tsx",
+      "_arrow-up-right-CLcjC4vK.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "_SelectField-DCw1CRiq.js": {
+    "file": "_next/static/chunks/SelectField-DCw1CRiq.js",
+    "name": "SelectField",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_createLucideIcon-DSOfZ7zZ.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "_arrow-up-right-CLcjC4vK.js": {
+    "file": "_next/static/chunks/arrow-up-right-CLcjC4vK.js",
+    "name": "arrow-up-right",
+    "imports": [
+      "_createLucideIcon-DSOfZ7zZ.js"
+    ]
+  },
+  "_createLucideIcon-DSOfZ7zZ.js": {
+    "file": "_next/static/chunks/createLucideIcon-DSOfZ7zZ.js",
+    "name": "createLucideIcon",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "_framework-D_rUT4EX.js": {
+    "file": "_next/static/chunks/framework-D_rUT4EX.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js"
+    ]
+  },
+  "_navigation-errors-By4dF-Cc.js": {
+    "file": "_next/static/chunks/navigation-errors-By4dF-Cc.js",
+    "name": "navigation-errors",
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "_rolldown-runtime-C60lm6uB.js": {
+    "file": "_next/static/chunks/rolldown-runtime-C60lm6uB.js",
+    "name": "rolldown-runtime"
+  },
+  "_search-CQTd3Fym.js": {
+    "file": "_next/static/chunks/search-CQTd3Fym.js",
+    "name": "search",
+    "imports": [
+      "_createLucideIcon-DSOfZ7zZ.js"
+    ]
+  },
+  "components/AboutContent.tsx": {
+    "file": "_next/static/chunks/AboutContent-Dd045rX5.js",
+    "name": "AboutContent",
+    "src": "components/AboutContent.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "components/CatalogProvider.tsx",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/AdminPanel.tsx": {
+    "file": "_next/static/chunks/AdminPanel-CFLkQSz4.js",
+    "name": "AdminPanel",
+    "src": "components/AdminPanel.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "components/CatalogProvider.tsx",
+      "_ProductCard-C9nNN15M.js",
+      "_SelectField-DCw1CRiq.js",
+      "_createLucideIcon-DSOfZ7zZ.js",
+      "_search-CQTd3Fym.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/Catalog.tsx": {
+    "file": "_next/static/chunks/Catalog-JgqsBkqE.js",
+    "name": "Catalog",
+    "src": "components/Catalog.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "components/CatalogProvider.tsx",
+      "_ProductCard-C9nNN15M.js",
+      "_SelectField-DCw1CRiq.js",
+      "_createLucideIcon-DSOfZ7zZ.js",
+      "_search-CQTd3Fym.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/CatalogProvider.tsx": {
+    "file": "_next/static/chunks/CatalogProvider-BMBv8UHh.js",
+    "name": "CatalogProvider",
+    "src": "components/CatalogProvider.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/ContactContent.tsx": {
+    "file": "_next/static/chunks/ContactContent-BDM4--fK.js",
+    "name": "ContactContent",
+    "src": "components/ContactContent.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "components/CatalogProvider.tsx",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/CustomOrderForm.tsx": {
+    "file": "_next/static/chunks/CustomOrderForm-B62JosLT.js",
+    "name": "CustomOrderForm",
+    "src": "components/CustomOrderForm.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "components/CatalogProvider.tsx",
+      "_SelectField-DCw1CRiq.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/HomeSections.tsx": {
+    "file": "_next/static/chunks/HomeSections-Cpl8vFw0.js",
+    "name": "HomeSections",
+    "src": "components/HomeSections.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "components/CatalogProvider.tsx",
+      "_ProductCard-C9nNN15M.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/ProductDetail.tsx": {
+    "file": "_next/static/chunks/ProductDetail-BuZEJYtN.js",
+    "name": "ProductDetail",
+    "src": "components/ProductDetail.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "components/CatalogProvider.tsx",
+      "_ProductCard-C9nNN15M.js",
+      "_createLucideIcon-DSOfZ7zZ.js",
+      "_arrow-up-right-CLcjC4vK.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/SiteChrome.tsx": {
+    "file": "_next/static/chunks/SiteChrome-B8IXu93r.js",
+    "name": "SiteChrome",
+    "src": "components/SiteChrome.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "components/CatalogProvider.tsx",
+      "_createLucideIcon-DSOfZ7zZ.js",
+      "_arrow-up-right-CLcjC4vK.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "components/SiteMotion.tsx": {
+    "file": "_next/static/chunks/SiteMotion-kihKo9kF.js",
+    "name": "SiteMotion",
+    "src": "components/SiteMotion.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-D_rUT4EX.js"
+    ],
+    "dynamicImports": [
+      "node_modules/gsap/index.js",
+      "node_modules/gsap/ScrollTrigger.js"
+    ]
+  },
+  "node_modules/gsap/ScrollTrigger.js": {
+    "file": "_next/static/chunks/ScrollTrigger-VzIR3E3W.js",
+    "name": "ScrollTrigger",
+    "src": "node_modules/gsap/ScrollTrigger.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/gsap/index.js": {
+    "file": "_next/static/chunks/gsap-C2Znuu3w.js",
+    "name": "gsap",
+    "src": "node_modules/gsap/index.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js": {
+    "file": "_next/static/chunks/app-route-prefetch-policy-UYkUB3HX.js",
+    "name": "app-route-prefetch-policy",
+    "src": "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "virtual:vinext-app-browser-entry"
+    ]
+  },
+  "node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "_next/static/chunks/layout-segment-context-C4nqPHY6.js",
+    "name": "layout-segment-context",
+    "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-D_rUT4EX.js",
+      "_navigation-errors-By4dF-Cc.js"
+    ]
+  },
+  "node_modules/vinext/dist/shims/streamed-icons.js": {
+    "file": "_next/static/chunks/streamed-icons-CAm-YTy2.js",
+    "name": "streamed-icons",
+    "src": "node_modules/vinext/dist/shims/streamed-icons.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "_next/static/chunks/index-CTyoH7b4.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-C60lm6uB.js",
+      "_framework-D_rUT4EX.js",
+      "_navigation-errors-By4dF-Cc.js"
+    ],
+    "dynamicImports": [
+      "node_modules/vinext/dist/shims/internal/app-route-prefetch-policy.js",
+      "virtual:vinext-app-browser-entry",
+      "node_modules/vinext/dist/shims/layout-segment-context.js",
+      "components/Catalog.tsx",
+      "components/CatalogProvider.tsx",
+      "components/AboutContent.tsx",
+      "node_modules/vinext/dist/shims/streamed-icons.js",
+      "components/ContactContent.tsx",
+      "components/HomeSections.tsx",
+      "components/SiteChrome.tsx",
+      "components/CustomOrderForm.tsx",
+      "components/SiteMotion.tsx",
+      "components/AdminPanel.tsx",
+      "components/ProductDetail.tsx"
+    ]
+  }
+}

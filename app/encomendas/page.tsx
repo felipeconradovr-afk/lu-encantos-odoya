@@ -6,13 +6,12 @@ export default function CustomPage() {
       <div className="page-intro">
         <p className="eyebrow">Do seu jeito, desde o primeiro detalhe</p>
         <h1>
-          Um encanto
+          Uma peça
           <br />
-          que começa em <em>você.</em>
+          para acompanhar <em>sua fé.</em>
         </h1>
         <p>
-          Escolha as cores, conte o que imaginou e deixe espaço para a criação.
-          A sua próxima peça pode começar aqui.
+          Compartilhe as cores, medidas, materiais e referências que fazem sentido para você. Cada encomenda é conversada com a Lu, respeitando os detalhes que você fornecer.
         </p>
       </div>
       <div className="order-layout">

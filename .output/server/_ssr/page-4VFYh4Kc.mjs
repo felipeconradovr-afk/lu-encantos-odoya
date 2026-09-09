@@ -1,0 +1,1 @@
+import{i as e,q as t}from"./rsc.mjs";var n=t(()=>{throw Error(`Unexpectedly client reference export 'ContactContent' is called on server`)},`8f708cd59f3e`,`ContactContent`),r=e(),i={title:`Fale com a Lu`};function a(){return(0,r.jsx)(n,{})}export{a as default,i as metadata};

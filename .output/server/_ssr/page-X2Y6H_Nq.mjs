@@ -1,0 +1,1 @@
+import{i as e,q as t}from"./rsc.mjs";var n=t(()=>{throw Error(`Unexpectedly client reference export 'AdminPanel' is called on server`)},`c562c3a7811d`,`AdminPanel`),r=e(),i={title:`Área da Lu — demonstração`};function a(){return(0,r.jsx)(n,{})}export{a as default,i as metadata};

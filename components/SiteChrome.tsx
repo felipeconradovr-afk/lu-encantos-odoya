@@ -1,7 +1,7 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { Menu, X, MessageCircle, ArrowUpRight } from 'lucide-react';
+import { useState, useRef, useEffect } from 'react';
+import { MessageCircle, ArrowUpRight } from 'lucide-react';
 import {useCatalog} from '@/components/CatalogProvider';
 import {whatsappUrl} from '@/lib/catalog';
 const links = [
@@ -24,6 +24,13 @@ export function Brand() {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const path = usePathname();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (e: KeyboardEvent) => { if (e.key === "Escape") { setOpen(false); toggleRef.current?.focus(); } };
+    document.addEventListener("keydown", close);
+    return () => document.removeEventListener("keydown", close);
+  }, [open]);
   return (
     <header className="site-header">
       <a
@@ -54,12 +61,13 @@ export function SiteHeader() {
       </a>
       <button
         className="menu-toggle"
+        ref={toggleRef}
         onClick={() => setOpen(!open)}
         aria-expanded={open}
         aria-controls="menu-principal"
         aria-label={open ? 'Fechar menu' : 'Abrir menu'}
       >
-        {open ? <X /> : <Menu />}
+        <span className="menu-lines" aria-hidden="true"><span /><span /></span>
       </button>
     </header>
   );
@@ -75,9 +83,9 @@ export function SiteFooter() {
             <Brand />
           </a>
           <p>
-            O bonito é carregar
+            Fé, axé e identidade.
             <br />
-            um pouco de quem você é.
+            Feito à mão, com respeito.
           </p>
         </div>
         <nav aria-label="Navegação do rodapé">

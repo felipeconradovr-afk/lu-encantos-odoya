@@ -2,8 +2,8 @@
 import { createClient } from '@/lib/supabase/client';
 import { publicImageUrl } from '@/lib/supabase/env';
 import {
-  initialCategories,
-  initialProducts,
+
+
   initialSettings,
   type Product,
   type Settings,
@@ -56,12 +56,6 @@ function mapRows(rows: ProductRow[]): { products: Product[]; categories: string[
 }
 
 export async function fetchCatalogSnapshot(): Promise<CatalogSnapshot> {
-  const fallback: CatalogSnapshot = {
-    products: initialProducts,
-    categories: initialCategories,
-    settings: initialSettings,
-    fromDatabase: false,
-  };
   try {
     const supabase = createClient();
     const [productsRes, categoriesRes, settingsRes] = await Promise.all([
@@ -73,9 +67,9 @@ export async function fetchCatalogSnapshot(): Promise<CatalogSnapshot> {
       supabase.from('categories').select('*').eq('active', true).order('position'),
       supabase.from('site_settings').select('*'),
     ]);
-    if (productsRes.error || !productsRes.data) return fallback;
+    if (productsRes.error || !productsRes.data) throw new Error("Não foi possível carregar o catálogo.");
     const rows = productsRes.data as unknown as ProductRow[];
-    if (!rows.length) return fallback;
+
     const { products } = mapRows(rows);
     const categories = !categoriesRes.error && categoriesRes.data?.length
       ? (categoriesRes.data as { name: string }[]).map((c) => c.name)
@@ -85,7 +79,7 @@ export async function fetchCatalogSnapshot(): Promise<CatalogSnapshot> {
     );
     return {
       products,
-      categories: categories.length ? categories : fallback.categories,
+      categories,
       settings: {
         whatsapp: settingsMap.get('whatsapp') || initialSettings.whatsapp,
         instagram: settingsMap.get('instagram') || '',
@@ -95,6 +89,6 @@ export async function fetchCatalogSnapshot(): Promise<CatalogSnapshot> {
       fromDatabase: true,
     };
   } catch {
-    return fallback;
+    throw new Error("Não foi possível carregar o catálogo.");
   }
 }
